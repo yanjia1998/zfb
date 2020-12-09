@@ -21,7 +21,6 @@ public class CardServiceImpl implements CardService {
         BaseResp baseResp = new BaseResp();
         baseResp.setCode(200);
         baseResp.setMessage("查询所有成功");
-        int i = 0;
         baseResp.setData(all);
         return baseResp;
     }
