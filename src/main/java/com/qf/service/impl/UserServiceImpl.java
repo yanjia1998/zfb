@@ -6,6 +6,7 @@ import com.qf.pojo.User;
 import com.qf.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -14,7 +15,7 @@ public class UserServiceImpl implements UserService {
     UserRepository userRepository;
 
     @Override
-    public BaseResp login(User user) {
+    public BaseResp login(@RequestBody User user) {
         BaseResp baseResp = new BaseResp();
 
             User byNameAndPassword = userRepository.findByNameAndPassword(user.getName(), user.getPassword());
@@ -31,7 +32,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public BaseResp registry(User user) {
+    public BaseResp registry(@RequestBody User user) {
         User user1 = userRepository.saveAndFlush(user);
         BaseResp baseResp = new BaseResp();
         baseResp.setCode(200);
