@@ -11,4 +11,7 @@ public interface OrderMapper {
 
     List<Order> findByUid(@Param("uid") Integer uid);
 
+    Integer updateAdd(@Param("uid") Integer uid,@Param("gid") Integer gid,@Param("number")Integer number);
+
+    Integer updateDown(Order order);
 }
