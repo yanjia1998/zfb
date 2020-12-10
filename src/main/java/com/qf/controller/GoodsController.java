@@ -28,4 +28,9 @@ public class GoodsController {
     public BaseResp findById(@RequestBody Map map){
         return goodsService.findById((Integer)map.get("id"));
     }
+
+    @RequestMapping(value = "/findByType",method = RequestMethod.POST)
+    public BaseResp findByType(@RequestBody String type){
+        return goodsService.findByType(type);
+    }
 }

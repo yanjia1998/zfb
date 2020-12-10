@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -43,6 +44,21 @@ public class GoodsServiceImpl implements GoodsService {
             baseResp.setCode(201);
             baseResp.setMessage("查询一个失败");
         }
+        return baseResp;
+    }
+
+    @Override
+    public BaseResp findByType(String type) {
+        List<Goods> list = goodsRepository.findByType(type);
+        BaseResp baseResp = new BaseResp();
+        if (list!=null){
+            baseResp.setCode(200);
+            baseResp.setData(list);
+            baseResp.setMessage("查询成功");
+            return baseResp;
+        }
+        baseResp.setCode(201);
+        baseResp.setMessage("查询失败");
         return baseResp;
     }
 }
