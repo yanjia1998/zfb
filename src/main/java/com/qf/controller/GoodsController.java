@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.xml.bind.SchemaOutputResolver;
 import java.util.Map;
 
 @RestController
@@ -28,5 +27,10 @@ public class GoodsController {
     @RequestMapping(value = "/findById",method = RequestMethod.POST)
     public BaseResp findById(@RequestBody Map map){
         return goodsService.findById((Integer)map.get("id"));
+    }
+
+    @RequestMapping(value = "/findByType",method = RequestMethod.POST)
+    public BaseResp findByType(@RequestBody String type){
+        return goodsService.findByType(type);
     }
 }
