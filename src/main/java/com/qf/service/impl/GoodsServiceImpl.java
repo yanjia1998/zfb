@@ -1,6 +1,7 @@
 package com.qf.service.impl;
 
 import com.qf.common.BaseResp;
+import com.qf.dao.GoodsMapper;
 import com.qf.dao.GoodsRepository;
 import com.qf.pojo.Goods;
 import com.qf.service.GoodsService;
@@ -16,6 +17,8 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Autowired
     GoodsRepository goodsRepository;
+    @Autowired
+    GoodsMapper goodsMapper;
 
     @Override
     public BaseResp findAll() {
@@ -59,6 +62,21 @@ public class GoodsServiceImpl implements GoodsService {
         }
         baseResp.setCode(201);
         baseResp.setMessage("查询失败");
+        return baseResp;
+    }
+
+    @Override
+    public BaseResp findByLike(String name) {
+        List<Goods> byLike = goodsMapper.findByLike(name);
+        BaseResp baseResp = new BaseResp();
+        if (byLike != null) {
+            baseResp.setCode(200);
+            baseResp.setData(byLike);
+            baseResp.setMessage("叮当查询成功");
+            return baseResp;
+        }
+        baseResp.setCode(201);
+        baseResp.setMessage("叮当查询失败");
         return baseResp;
     }
 }

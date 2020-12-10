@@ -32,4 +32,8 @@ public class GoodsController {
     public BaseResp findByType(@RequestBody String type){
         return goodsService.findByType(type);
     }
+    @RequestMapping(value ="/findByLike", method = RequestMethod.POST)
+    public BaseResp findByLike(@RequestBody String name){
+        return goodsService.findByLike((name));
+    }
 }

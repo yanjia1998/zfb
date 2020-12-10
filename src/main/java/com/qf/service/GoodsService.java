@@ -10,4 +10,6 @@ public interface GoodsService {
     BaseResp findById(Integer id);
 
     BaseResp findByType(String type);
+
+    BaseResp findByLike(String name);
 }
