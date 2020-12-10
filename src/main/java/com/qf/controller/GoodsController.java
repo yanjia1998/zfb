@@ -17,7 +17,6 @@ public class GoodsController {
     @Autowired
     GoodsService goodsService;
 
-
     @RequestMapping(value = "/findAll",method = RequestMethod.GET)
     public BaseResp findAll(){
 
