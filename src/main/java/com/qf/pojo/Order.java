@@ -17,4 +17,6 @@ public class Order {
 
     private Integer uid;
     private Integer number;
+
+    private Integer gid;
 }
