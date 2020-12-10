@@ -7,4 +7,11 @@
         select  * from orders where uid = #{uid}
 
     </select>
+
+    <update id="updateAdd" >
+        update orders set number=#{number}+1 where uid=#{uid} and gid=#{gid}
+    </update>
+    <update id="updateDown" parameterType="order">
+         update orders set number=#{number}-1 where uid=#{uid} and gid=#{gid}
+    </update>
 </mapper>

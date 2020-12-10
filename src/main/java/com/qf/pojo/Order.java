@@ -19,4 +19,6 @@ public class Order {
     private Integer number;
 
     private Integer gid;
+
+    private  Double price;
 }
