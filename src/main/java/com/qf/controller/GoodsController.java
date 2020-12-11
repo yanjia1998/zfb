@@ -3,15 +3,13 @@ package com.qf.controller;
 import com.qf.common.BaseResp;
 import com.qf.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
 @RestController
 @RequestMapping("/goods")
+@CrossOrigin
 public class GoodsController {
 
     @Autowired
@@ -28,12 +26,15 @@ public class GoodsController {
         return goodsService.findById((Integer)map.get("id"));
     }
 
+
     @RequestMapping(value = "/findByType",method = RequestMethod.POST)
-    public BaseResp findByType(@RequestBody String type){
-        return goodsService.findByType(type);
+    public BaseResp findByType(@RequestBody Map map){
+        return goodsService.findByType(map.get("type").toString());
     }
+
+
     @RequestMapping(value ="/findByLike", method = RequestMethod.POST)
-    public BaseResp findByLike(@RequestBody String name){
-        return goodsService.findByLike((name));
+    public BaseResp findByLike(@RequestBody  Map map){
+        return goodsService.findByLike((map.get("name").toString()));
     }
 }

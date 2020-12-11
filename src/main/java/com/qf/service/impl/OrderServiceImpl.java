@@ -3,6 +3,7 @@ package com.qf.service.impl;
 import com.qf.common.BaseResp;
 import com.qf.dao.OrderMapper;
 import com.qf.pojo.Order;
+import com.qf.pojo.OrderDetail;
 import com.qf.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public BaseResp findByUid(Integer uid) {
-        List<Order> byUid = orderRepository.findByUid(uid);
+        List<OrderDetail> byUid = orderRepository.findByUid(uid);
         BaseResp baseResp = new BaseResp();
         if(byUid != null){
 
