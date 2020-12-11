@@ -18,4 +18,8 @@ public class User {
     private String password;
 
     private Double money;
+
+    private String email;
+
+    private String code;
 }
