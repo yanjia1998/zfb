@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Optional;
 import java.util.Random;
 
 @Service
@@ -45,6 +46,21 @@ public class UserServiceImpl implements UserService {
         HttpSession session = request.getSession();
         session.setAttribute(email,code);
         return "success";
+    }
+
+    @Override
+    public BaseResp findById(Integer id) {
+        Optional<User> byId = userRepository.findById(id);
+        BaseResp baseResp = new BaseResp();
+        if(byId.isPresent()){
+            baseResp.setMessage("查询成功");
+            baseResp.setData(byId.get());
+            baseResp.setCode(200);
+        }else{
+            baseResp.setMessage("查询失败");
+            baseResp.setCode(201);
+        }
+        return baseResp;
     }
 
     @Override

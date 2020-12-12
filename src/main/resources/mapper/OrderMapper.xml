@@ -14,4 +14,7 @@
     <update id="updateDown" parameterType="order">
          update orders set number=#{number}-1 where uid=#{uid} and gid=#{gid}
     </update>
+    <insert id="insertOrder" parameterType="order">
+        insert into orders (gname,number,uid,gid,price) values (#{gname},#{number},#{uid},#{gid},#{price})
+    </insert>
 </mapper>

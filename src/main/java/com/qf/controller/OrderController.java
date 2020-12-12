@@ -28,4 +28,10 @@ public class OrderController {
     public BaseResp updateDown (@RequestBody Order order){
         return orderService.updateDown(order);
     }
+
+    @RequestMapping(value = "/insertOrder",method = RequestMethod.POST)
+    public BaseResp insertOrder (@RequestBody Order order){
+        return orderService.insertOrder(order);
+    }
+
 }

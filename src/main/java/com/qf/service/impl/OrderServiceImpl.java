@@ -59,4 +59,17 @@ public class OrderServiceImpl implements OrderService {
         }
         return baseResp;
     }
+
+    @Override
+    public BaseResp insertOrder(Order order) {
+        Integer integer = orderRepository.insertOrder(order);
+        BaseResp baseResp = new BaseResp();
+        if (integer ==0){
+            baseResp.setMessage("添加失败");
+            baseResp.setCode(201);
+        }
+        baseResp.setCode(200);
+        baseResp.setMessage("添加成功");
+        return baseResp;
+    }
 }

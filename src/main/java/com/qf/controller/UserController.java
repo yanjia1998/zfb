@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.swing.plaf.basic.BasicEditorPaneUI;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/user")
@@ -31,5 +33,10 @@ public class UserController {
     @RequestMapping(value = "/registry",method = RequestMethod.POST)
     public BaseResp registry(@RequestBody User user, HttpServletRequest request){
         return userService.registry(user,request);
+    }
+    @RequestMapping(value = "/findById",method = RequestMethod.POST)
+    public BaseResp findById(@RequestBody Map map){
+        return userService.findById((Integer)map.get("id"));
+
     }
 }

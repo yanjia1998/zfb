@@ -9,4 +9,6 @@ public interface OrderService {
     BaseResp updateAdd(Integer uid, Integer gid,Integer number);
 
     BaseResp updateDown(Order order);
+
+    BaseResp insertOrder(Order order);
 }

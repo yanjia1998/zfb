@@ -11,4 +11,6 @@ public interface UserService {
     BaseResp registry(User user, HttpServletRequest request);
 
     String sendEmail(String email, HttpServletRequest request);
+
+    BaseResp findById(Integer id);
 }
